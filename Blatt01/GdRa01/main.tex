@@ -1,0 +1,75 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage[ngerman]{babel}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{esvect}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{todonotes}
+\usepackage{pgfplots}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{booktabs}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+\usepackage{mathtools}
+\usepackage{centernot}
+
+\hypersetup{
+     colorlinks   = true,
+     citecolor    = gray
+}
+
+
+\title{Grundlagen der Rechnerarchitektur Blatt 1}
+\author{Marco Deuscher}
+\date{28. Oktober 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Einleitungsfragen}
+\paragraph{(a)}
+Unter Rechnerarchitektur stelle ich mir die strukturelle Beschreibung des Aufbaus eines Rechensystems vor. Insbesondere wie die einzelnen Komponenten eines Rechners aufgebaut sind und wie diese kooperieren. 
+
+\paragraph{(b)}
+Unter den Grundlagen der Rechnerarchitektur verstehe ich alle Konzepte die in Rechnern verwendet werden. Dazu gehören unter anderem verschiedene Zahlensysteme, der Aufbau eines Prozessors, der Aufbau von Speichermodulen, welche Busse verwenden moderne Computer und wie sind diese implementiert.
+
+\paragraph{(c)}
+Von der Vorlesung Grundlagen der Rechnerarchitektur erhoffe ich mir folgendes
+\begin{itemize}
+    \item einen tieferen Einblick in den Aufbau eines Rechensystems
+    \item Einblick in die Architektur moderner Prozessoren
+    \item Übergang von Assembler zu tatsächlich auf der Maschine ausführbaren Programmen
+    \item kleinere Einblicke in die Funktionsweise von FPGA und wie diese mit HDL programmiert werden können
+\end{itemize}
+
+
+
+\section{Historische Entwicklung}
+\paragraph{(a)}
+Ein Nachteil mechanischer Rechner ist es, dass diese Verschleißteile habe. Bspw. kann ein Relais nur einige Millionen mal geschaltet werden bevor es kaputt geht.\\
+Ein weiterer Nachteil mechanischer Rechner ist die geringere Taktrate. Durch die mechanischen Bauteile wird die Geschwindigkeit stark beschränkt.
+
+\paragraph{(b)}
+
+\paragraph{(c)}
+Es gab oftmals noch keine Standardisierung der Rechnerarchitektur, insbesondere der Menge der Instruktionen. Ein neuer Rechner hat oftmals nicht alle Instruktionen eines alten Rechners implementiert oder diese zu neuen Instruktionen zusammengefasst, so dass ein Programm für einen neuen Rechner auch neu implementiert werden musste.
+
+
+\paragraph{(d)}
+Die (elektro-)mechanischen Rechner wurden durch vacuum tube commputer ersetzt.
+\todo[inline]{Was soll man denn da schreibe?!}
+
+\paragraph{(e)}
+Der kaufmännische und der wissenschaftliche Bereiche weisen verschiedene Anforderungsprofile auf. Während im kaufmännischen Bereich die Rechner hauptsächlich für die Buchführung eingesetzt wurden, bei der vor allem Sekundärspeicher nötig war, wurden die Rechner im wissenschaftlichen Bereich für Berechnungen eingesetzt. Dort war vor allem die Rechenleistung relevant.
+\todo[inline]{Welche Entwicklung führte dazu?}
+
+
+\end{document}
