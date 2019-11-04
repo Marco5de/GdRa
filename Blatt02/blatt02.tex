@@ -1,0 +1,74 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage[ngerman]{babel}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{esvect}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{todonotes}
+\usepackage{pgfplots}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{booktabs}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+\usepackage{mathtools}
+\usepackage{centernot}
+
+\hypersetup{
+     colorlinks   = true,
+     citecolor    = gray
+}
+
+
+\title{Grundlagen der Rechnerarchitektur Blatt 2}
+\author{Marco Deuscher \and Carolin Schindler}
+\date{04. November 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Aufgabe: Additive Zahlensysteme}
+
+\section{Aufgabe: Polyadsiche Zahlensysteme}
+
+
+\section{Aufgabe: Wir wollen dann bitte Zahlen...}
+\paragraph{(a)}
+$BAD55$\\
+Hierbei ist $D$ das höchstwertige Symbol, damit muss $b\geq 14$ sein. Es gibt somit drei Interpretationsmöglichkeiten der Zahl ($b=14$,$b=15$,$b=16$).
+
+\paragraph{(b)}
+$DEADC0DE$\\
+Hierbei ist $E$ das höchstwertige Symbol, damit muss $b\geq 15$ sein. Es gibt somit zwei Interpreationsmöglichkeiten der Zahl ($b=15$, $b=16$).
+
+\paragraph{(c)}
+$C0CAC01A$\\
+Hierbei ist $C$ das höchstwertige Symbol, damit muss $b\geq	13$ sein. Es gibt somit vier Interpreationsmöglichkeiten der Zahl ($b=13$, $b=14$, $b=15$, $b=16$).
+
+\section{Aufgabe: Bitwertigkeit}
+In dieser Aufgabe gilt also $*=0$, $\#=1$, $\sim=2$ und $\$=3$
+
+\paragraph{(a)}
+
+\begin{enumerate}
+	\item $ \$ \sim *\# = \$\cdot 4^3 + \sim\cdot4^2 + *\cdot 4^1 + \#\cdot4^0 = 4\cdot 64 + 2\cdot 16 + 0 + 1 = 289$ 
+	\item $ \#\sim\sim\$ = \#\cdot4^3 + \sim\cdot4^2 + \sim\cdot4^1 + \$\cdot4^0 = 64 + 32 + 4 + 3 = 193$
+	\item $ \#\$\$\sim * \sim = \#\cdot4^5 + \$\cdot 4^4 + \$\cdot 4^3 + \sim\cdot4^2 + *\cdot4^1 + \sim\cdot4^0 =1024 + 3\cdot256 + 3\cdot 64 + 2\cdot 16 + 0 + 2 = 2018  $	
+\end{enumerate}
+
+\paragraph{(b)}
+
+\begin{enumerate}
+	\item 
+\end{enumerate}
+
+
+      
+\end{document}
