@@ -19,6 +19,10 @@
 \usetikzlibrary{patterns}
 \usepackage{mathtools}
 \usepackage{centernot}
+\usepackage{mathabx}
+
+\newcommand{\uproman}[1]{\uppercase\expandafter{\romannumeral#1}}
+\newcommand\mathbfont{\usefont{U}{mathb}{m}{n}}
 
 \hypersetup{
      colorlinks   = true,
@@ -35,8 +39,25 @@
 \maketitle
 
 \section{Aufgabe: Additive Zahlensysteme}
+\begin{enumerate}
+	\item $400_{10} = 4_{10} \cdot 100_{10} \rightarrow \uproman{400}$
+	\item $133_{10} = 1_{10} \cdot 100_{10} + 3_{10} \cdot 10_{10} + 3_{10} \cdot 1_{10} \rightarrow \uproman{133}$
+	\item $350_{10} = 3_{10} \cdot 100_{10} + 1_{10} \cdot 50_{10} \rightarrow \uproman{350}$
+	\item $622_{10} = 1_{10} \cdot 500_{10} + 1_{10} \cdot 100_{10} + 2_{10} \cdot 10_{10} + 2_{10} \cdot 1_{10} \rightarrow \uproman{622}$
+	\item $6452_{10} = 6_{10} \cdot 1000_{10} + 4_{10} \cdot 100_{10} + 1_{10} \cdot 50_{10} + 2_{10} \cdot 1_{10} \rightarrow \uproman{6452}$
+\end{enumerate}
 
 \section{Aufgabe: Polyadsiche Zahlensysteme}
+\paragraph{(a)}
+	\begin{enumerate}
+		\item $400_{10} = (1\cdot20^2)_{10} \rightarrow \maya{400}$
+		\item $133_{10} = (6\cdot20^1)_{10} + (13\cdot20^0)_{10} \rightarrow \maya{133}$
+		\item $350_{10} = (17\cdot20^1)_{10} + (10\cdot20^0)_{10} \rightarrow \maya{350}$
+		\item $622_{10} = (1\cdot20^2)_{10} + (11\cdot20^1)_{10} + (2\cdot20^0)_{10} \rightarrow \maya{622}$
+		\item $6452_{10} = (16\cdot20^2)_{10} + (2\cdot20^1)_{10} + (12\cdot20^0)_{10} \rightarrow \maya{6452}$
+	\end{enumerate}
+\paragraph{(b)}
+Rechenoperationen können \glqq potenzweise\grqq / \glqq stellenweise\grqq durchgeführt werden.
 
 
 \section{Aufgabe: Wir wollen dann bitte Zahlen...}
