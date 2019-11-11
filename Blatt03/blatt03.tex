@@ -1,0 +1,163 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage[ngerman]{babel}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{esvect}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{todonotes}
+\usepackage{pgfplots}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{booktabs}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+\usepackage{mathtools}
+\usepackage{centernot}
+\usepackage{mathabx}
+
+\newcommand{\uproman}[1]{\uppercase\expandafter{\romannumeral#1}}
+\newcommand\mathbfont{\usefont{U}{mathb}{m}{n}}
+
+\hypersetup{
+     colorlinks   = true,
+     citecolor    = gray
+}
+
+
+\title{Grundlagen der Rechnerarchitektur Blatt 3}
+\author{Marco Deuscher \and Carolin Schindler}
+\date{11. November 2019}
+
+\begin{document}
+
+\maketitle
+\section{Aufgabe: Dezimalzahlen umrechnen}
+\paragraph{(a)}
+\begin{align*} 
+	1944_{10} & = 1024_{10} + 512_{10} + 256_{10} + 128_{10} + 16_{10} + 8_{10}\\ 
+			  & = (2^{10}+2^9+2^8+2^7+2^4+2^3)_{10} = 111\;1001\;1000_2
+\end{align*}
+
+\paragraph{(b)}
+\begin{align*}
+	1476_{10} : 8 &= 184 \quad \text{R}=4\\
+	184_{10} : 8 &= 23 \quad \text{R}=0\\
+	23_{10} : 8 &= 2 \quad \text{R}=7\\
+	2_{10} : 8 &= 0 \quad \text{R}=2\\
+	\rightarrow 1476_{10} &= 2704_{8}
+\end{align*}
+
+
+\paragraph{(c)}
+\begin{align*}
+	1535_{10} : 16 &= 95 \quad \text{R}=15\\
+	95_{10} : 16 &= 5 \quad \text{R}=15\\
+	5_{10} : 16 &= 0 \quad \text{R}=5\\
+	\rightarrow 1535_{10} &= 5FF_{16} 
+\end{align*}
+
+\paragraph{(d)}
+\begin{align*}
+	116_{10} : 7 &= 16 \quad \text{R}=4\\
+	16_{10} : 7 &= 2 \quad \text{R}=2\\
+	2_{10} : 7 &= 0 \quad \text{R}=2\\
+	\rightarrow 116_{10} &= 224_7
+\end{align*}
+
+
+\section{Aufgabe: Ins Dezimalsystem umrechnen}
+\paragraph{(a)}
+$ 1100\;0111_2 = (2^0 + 2^1 + 2^2 + 2^6 + 2^7)_{10} = 199_{10} $
+\paragraph{(b)}
+$1065_7 = (5\cdot7^0+6\cdot7^1+7^3)_{10}=390_{10}$
+\paragraph{(c)}
+$2EA_{16} = (10\cdot16^0+15\cdot16^1+2\cdot16^2)_{10} = 762_{10}$
+\paragraph{(d)}
+$3262_8 = (2\cdot8^0+6\cdot8^1+2\cdot8^2+3\cdot8^3)_{10} = 1714_{10} $
+
+
+\section{Zwischen Systemen umrechnen}
+\paragraph{(a)}
+$227_{16} = 0010\;0010\;0111_2 = 1047_8  $
+\paragraph{(b)}
+$10010001101_2 = 2215_8$
+\paragraph{(c)}
+$101011111111111101101000000001111_2 = AFFED00F_{16}$
+\paragraph{(d)}
+$5742_9=012\;021\;011\;012_3$
+
+
+\section{Komisches Zahlensystem}
+Verwende aufsteigend die folgenden Werte\\
+$\{0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f,g,h,i,j,k\} $
+\paragraph{(a)}
+$26_{10} = (1\cdot21^1+5\cdot21^0)_{10} = 15_{21}$
+\paragraph{(b)}
+$19_{10} = (19*21^0)_{10} = k_{21}$
+
+
+\section{Most significant bit}
+\paragraph{(a)}
+\begin{align*}
+	1050_8 = (5\cdot8^1 + 1\cdot8^3)_{10} = 552_{10} \quad &\text{MSB left}\\
+	1050_8 = (1\cdot8^0 + 5\cdot8^2)_{10} = 321_{10} \quad &\text{MSB right}\\
+\end{align*}
+
+\paragraph{(b)}
+\begin{align*}
+	10110010010_2 = (2^1+2^4+2^7+2^8+2^{10})_{10} = 1426_{10} \quad &\text{MSB left}\\
+	10110010010_2 = (2^0+2^2+2^3+2^6+2^9)_{10} = 589_{10} \quad &\text{MSB right}
+\end{align*}
+
+\paragraph{(c)}
+\begin{align*}
+	4242_{10} = 4242_{10} \quad &\text{MSB left}\\
+	4242_{10} = 2424_{10} \quad &\text{MSB right}\\
+\end{align*}
+
+\paragraph{(d)}
+$A47_{14} = (7\cdot14^0+4\cdot14^1+10\cdot14^2)_{10}=2023_{10}$
+\begin{align*}
+	2023_{10} : 4 &= 505 \quad \text{R}=3\\
+	505_{10} : 4 &= 126 \quad \text{R}=1\\
+	126_{10} : 4 &= 31 \quad \text{R}=2\\
+	31_{10} : 4 &= 7 \quad \text{R}=3\\
+	7_{10} : 4 &=1 \quad \text{R}=3\\
+	1_{10} : 4 &=0 \quad \text{R}=1\\
+	\rightarrow A47_{10} &= 133213_4 \quad \text{mit MSB links}\\
+\end{align*}
+
+$A47_{14} = (10\cdot14^0+4\cdot14^1+7\cdot14^2)_{10} = 1438_{10}$
+\begin{align*}
+	1438_{10} :4 &= 359 \quad \text{R} = 2\\
+	359_{10} : 4 &= 89 \quad \text{R} = 3\\
+	89_{10} : 4 &= 22 \quad \text{R} = 1\\
+	22_{10} : 4 &= 5 \quad \text{R} = 2\\
+	5_{10} : 4 &= 1 \quad \text{R} = 1\\
+	1_{10} : 4 &= 1 \quad \text{R} = 1\\
+	\rightarrow A47_{14} &= 112132_4 \quad \text{mit MSB rechts}\\
+\end{align*}
+
+
+\section{Knobelaufgabe}
+$65243_b = 27299_{10}$ mit $b<10$, da $65243_{10} > 27299_{10}$\\
+Für $b=8$ erhält man dann\\
+$(3+4\cdot8^1+2\cdot8^2+5\cdot8^3+6\cdot8^4)_{10} = 27299_{10}$
+
+
+\section{Festkomma}
+\paragraph{(a)}
+$10,625_{10} = 1010,101_2$, da
+$10_{10} = 1010_2$ und $0.625_{10} = (0,5+0,125)_{10} = (2^{-1}+2^{-3})_{10} = 0,101_2$
+
+\paragraph{(b)}
+$101101,1101_2 = (2^5+2^3+2^2+2^0+2^{-1}+2^{-2}+2^{-4})_{10} = 45,8125_{10}$
+
+\end{document}
