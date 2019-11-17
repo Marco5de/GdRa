@@ -1,0 +1,170 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage[ngerman]{babel}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{esvect}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{todonotes}
+\usepackage{pgfplots}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{booktabs}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+\usepackage{mathtools}
+\usepackage{centernot}
+\usepackage{mathabx}
+
+\newcommand{\uproman}[1]{\uppercase\expandafter{\romannumeral#1}}
+\newcommand\mathbfont{\usefont{U}{mathb}{m}{n}}
+
+\hypersetup{
+     colorlinks   = true,
+     citecolor    = gray
+}
+
+
+\title{Grundlagen der Rechnerarchitektur Blatt 4}
+\author{Marco Deuscher \and Carolin Schindler}
+\date{18. November 2019}
+
+\begin{document}
+
+\maketitle
+\section{Aufgabe: Negativ, Positiv: So viele Möglichkeiten}
+\paragraph{(a)}
+\begin{align*}
+\text{vorzeichenbehaftet: } &-554_{10} \\
+	&11000101010_{2} \\
+	&\text{negative Zahl mit Betrag: } 1000101010_{2}\rightarrow (2 + 2^3 + 2^5 + 2^9)_{10} = 554_{10} \\
+\text{b-Komplement: } &469_{10} \\
+	&\text{Umwandlung in vorzeichenbehaftet: } 00111010101_{2} \\
+	&\text{positive Zahl mit Betrag: } 0111010101_{2}\rightarrow (1 + 2^2 + 2^4 + 2^6 + 2^7 + 2^8)_{10} = 469_{10} \\
+\text{b-1-Komplement: } &470_{10} \\
+	&\text{Vorzeichen: wie bei b-Komplement} \rightarrow \text{positiv} \\
+	&\text{Betrag: $\|$b-Komplement + 1$\|$} \rightarrow 470_{10}
+\end{align*}
+
+\paragraph{(b)}
+\begin{align*}
+\text{vorzeichenbehaftet: } &122_{10} \\
+	&01111010_{2} \\
+	&\text{positive Zahl mit Betrag: } 1111010_{2}\rightarrow (2 + 2^3 + 2^4 + 2^5 + 2^6)_{10} = 122_{10} \\
+\text{b-Komplement: } &-5_{10} \\
+	&\text{Umwandlung in vorzeichenbehaftet: } 10000101_{2} \\
+	&\text{negative Zahl mit Betrag: } 000101_{2}\rightarrow (1 + 2^2)_{10} = 5_{10} \\
+\text{b-1-Komplement: } &-6_{10} \\
+	&\text{Vorzeichen: wie bei b-Komplement} \rightarrow \text{negativ} \\
+	&\text{Betrag: $\|$b-Komplement + 1$\|$} \rightarrow 6_{10}
+\end{align*}
+
+\paragraph{(c)}
+\begin{align*}
+\text{vorzeichenbehaftet: } &-63_{10} \\
+	&1111111_{2} \\
+	&\text{negative Zahl mit Betrag: } 111111_{2}\rightarrow (1 + 2 + +2^2 + 2^3 + 2^4 + 2^5)_{10} = 63_{10} \\
+\text{b-Komplement: } &0_{10} \\
+	&\text{Umwandlung in vorzeichenbehaftet: } 0000000_{2} \\
+	&\text{positive Zahl mit Betrag: } 000000_{2}\rightarrow 0_{10} \\
+\text{b-1-Komplement: } &1_{10} \\
+	&\text{Vorzeichen: wie bei b-Komplement} \rightarrow \text{positiv} \\
+	&\text{Betrag: $\|$b-Komplement + 1$\|$} \rightarrow 1_{10}
+\end{align*}
+
+
+\section{Aufgabe: Multiplikation und Division}
+\paragraph{(a)}
+\begin{align*}
+XXX
+\end{align*}
+\paragraph{(b)}
+\begin{align*}
+XXX
+\end{align*}
+
+
+\section{Keine Brüche, nur Kommas}
+\paragraph{(a)}
+$1,453125_{10}\rightarrow 000001011101$ (ohne Abschneiden)
+\begin{align*}
+	0,453125 * 2 &= 0,90625 \\
+	0,90625 * 2 &= 1,8125 \\
+	0,8125 * 2 &= 1,625 \\
+	0,625 * 2 &= 1,25 \\
+	0,25 * 2 &= 0,5 \\
+	0,5 * 2 &= 1 \\
+\end{align*}
+\paragraph{(b)}
+$0,\overline{3}_{10}\rightarrow 000000010101_{2}$ (mit Abschneiden)
+\begin{align*}
+	\frac{1}{3}\cdot 2 &= \frac{2}{3} \\
+	\frac{2}{3}\cdot 2 &= \frac{4}{3} \\
+	\frac{1}{3}\cdot 2 &= \frac{2}{3} \\
+	\frac{2}{3}\cdot 2 &= \frac{4}{3} \\
+	\text{\ldots}
+\end{align*}
+Es gibt (abgesehen von der Einführung eines Periodenzeichens: $0,\overline{3}_{10}\rightarrow 000000\overline{01}_{2}$) keine Möglichkeit die Zahl als 12 Bit Festkommazahl darzustellen.
+
+
+
+\section{Multiplizieren und Dividieren, aber schnell}
+\paragraph{(a)}
+$1001010100_{2}$ (entspricht $\ll 1_{10}$)
+\paragraph{(b)}
+$010100_{2}$ (entspricht $\ll 2_{10}$)
+\paragraph{(c)}
+$000000000001_{2}$ (entspricht $\gg 9_{10}$)
+\paragraph{(d)}
+XXX
+
+
+\section{Binär und doch Dezimal}
+\paragraph{(a)}
+\begin{align*}
+XXX
+\end{align*}
+\paragraph{(b)}
+\begin{align*}
+XXX
+\end{align*}
+\paragraph{(c)}
+\begin{align*}
+XXX
+\end{align*}
+\paragraph{(d)}
+\begin{align*}
+XXX
+\end{align*}
+
+
+\section{Was passiert hier?}
+\paragraph{(a)}
+\begin{align*}
+XXX
+\end{align*}
+\paragraph{(b)}
+\begin{align*}
+XXX
+\end{align*}
+
+\section{Knobelaufgabe}
+Es gibt Zahlen, die im Dezimalsystem weder irrational noch periodisch sind und im Dualsystem nicht durch eine endliche Anzahl an Stellend darstellbar sind. Ein Beispiel hierfür ist die Zahl $0,1_{10} \rightarrow 0,0\overline{0011}_{2}$:
+\begin{align*}
+0,1 \cdot 2 &= 0,2 \\
+0,2 \cdot 2 &= 0,4 \\
+0,4 \cdot 2 &= 0,8 \\
+0,8 \cdot 2 &= 1,6 \\
+0,6 \cdot 2 &= 1,2 \\
+0,2 \cdot 2 &= 0,4 \\
+\text{\ldots}
+\end{align*}
+
+
+\end{document}
