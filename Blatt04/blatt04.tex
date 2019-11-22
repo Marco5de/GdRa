@@ -141,7 +141,8 @@ $010100_{2}$ (entspricht $\ll 2_{10}$)
 \paragraph{(c)}
 $000000000001_{2}$ (entspricht $\gg 9_{10}$)
 \paragraph{(d)}
-XXX
+$0000000000001010_2$ (entspricht $\gg3_{10}$) \\
+Interpretation als Festkommazahl mit 8 Bit vor und 8 Bit nach dem Komma $\rightarrow (2^{-7}+2^{-5})_{10} = 0,0390625_{10}$
 
 
 \section{Binär und doch Dezimal}
@@ -205,14 +206,28 @@ XXX
 
 
 \section{Was passiert hier?}
-\paragraph{(a)}
+\paragraph{(a)} $0101110_2 + 0110111_2 = 1100101_2$
 \begin{align*}
-XXX
+	\begin{array} {cccccccc}
+	&0&1&0&1&1&1&0\\
+	+&0&1&1&0&1&1&1\\
+	&_1&_1&_1&_1&_1&&\\
+	\hline
+	&1&1&0&0&1&0&1\\
+	\end{array}
 \end{align*}
-\paragraph{(b)}
+$\rightarrow$ ein Bit fehlt, um das Ergebnis korrekt darzustellen (Ergebnis muss positiv sein, hier wäre es negativ).
+\paragraph{(b)} $1011111_2 - 0110111_2 = 1011111_2 + 1001000_2 = 0100111_2$
 \begin{align*}
-XXX
+	\begin{array} {cccccccc}
+	&1&0&1&1&1&1&1\\
+	+&1&0&0&1&0&0&0\\
+	_1&&_1&_1&&&&\\
+	\hline
+	&0&1&0&0&1&1&1\\
+	\end{array}
 \end{align*}
+$\rightarrow$ Überlauf bei Addition
 
 \section{Knobelaufgabe}
 Es gibt Zahlen, die im Dezimalsystem weder irrational noch periodisch sind und im Dualsystem nicht durch eine endliche Anzahl an Stellend darstellbar sind. Ein Beispiel hierfür ist die Zahl $0,1_{10} \rightarrow 0,0\overline{0011}_{2}$:
