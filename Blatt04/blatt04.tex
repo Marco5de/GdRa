@@ -73,11 +73,39 @@
 \section{Aufgabe: Multiplikation und Division}
 \paragraph{(a)}
 \begin{align*}
-XXX
+	\begin{array} {cccccccccccccccc}
+		1&1&1&0&0&1&\cdot&1&0&0&1&1&0&1&0& = 10001001001010_{2} \\
+		\hline
+		&&&&&&&&1&1&1&0&0&1&& \\
+		&&&&&&1&1&1&0&0&1&&&& \\
+		&&&&&1&1&1&0&0&1&&&&& \\
+		&+&1&1&1&0&0&1&&&&&&&& \\
+		&_1&_1&_1&_1&_1^1&&_1&_1&_1&&&&&& \\
+		\hline
+		&1&0&0&0&1&0&0&1&0&0&1&0&1&0
+	\end{array}
 \end{align*}
+
 \paragraph{(b)}
 \begin{align*}
-XXX
+	\begin{array} {ccccccccccccccccccc}
+	0&1&1&1&0&1&1&0&0&0&0&1&:&1&0&1&1&0& = 1010101_2 \text{Rest: } 10011_2 \\
+	-&1&0&1&1&0&&&&&&&&&&&&& \\
+	&&_1&_1&&&&&&&&&&&&&&& \\
+	\hline
+	&0&0&1&1&1&1&0&&&&&&&&&&& \\
+	&&-&1&0&1&1&0&&&&&&&&&&& \\
+	\hline
+	&&&0&1&0&0&0&0&0&&&&&&&&& \\
+	&&&-&&1&0&1&1&0&&&&&&&&& \\
+	&&&&_1&_1&_1&_1&&&&&&&&&&& \\
+	\hline
+	&&&&0&0&1&0&1&0&0&1&&&&&&& \\
+	&&&&&-&&1&0&1&1&0&&&&&&& \\
+	&&&&&&_1&&_1&_1&&&&&&&&& \\
+	\hline
+	&&&&&&0&1&0&0&1&1&&&&&&& \\
+	\end{array}
 \end{align*}
 
 
@@ -117,21 +145,62 @@ XXX
 
 
 \section{Binär und doch Dezimal}
-\paragraph{(a)}
+\paragraph{(a)} $377_{10}\rightarrow 0011 0111 0111_{BCD}$
 \begin{align*}
-XXX
+	3_{10}&\rightarrow 0011_2\\
+	7_{10}&\rightarrow 0111_2
 \end{align*}
-\paragraph{(b)}
+\paragraph{(b)} $17_{10}+13_{10} \rightarrow 00110000_{BCD} \rightarrow 30_{10}$
 \begin{align*}
-XXX
+	17_{10}&\rightarrow 00010111_{BCD}\\
+	13_{10}&\rightarrow 00010011_{BCD}
 \end{align*}
-\paragraph{(c)}
 \begin{align*}
-XXX
+	\begin{array} {cccccccccl}
+	&0&0&0&1&0&1&1&1& \\
+	+&0&0&0&1&0&0&1&1& \\
+	&&&_1&&_1&_1&_1&& \\
+	\hline
+	&0&0&1&0&1&0&1&0&1010 \text{ Pseudotetrade} \\
+	+&&&&&0&1&1&0& \rightarrow +6_{10}\\
+	&&&&_1&_1&_1&&& \\
+	\hline
+	&0&0&1&1&0&0&0&0& \\
+	\end{array}
 \end{align*}
-\paragraph{(d)}
+\paragraph{(c)} $110_{10}+99_{10} \rightarrow 001000001001_{BCD} \rightarrow 209_{10}$
 \begin{align*}
-XXX
+	110_{10}&\rightarrow 000100010000_{BCD}\\
+	99_{10}&\rightarrow 10011001_{BCD}
+\end{align*}
+\begin{align*}
+	\begin{array} {cccccccccccccl}
+	&0&0&0&1&0&0&0&1&0&0&0&0& \\
+	+&&&&&1&0&0&1&1&0&0&1& \\
+	&&&&&&&_1&&&&&& \\
+	\hline
+	&0&0&0&1&1&0&1&0&1&0&0&1&1010 \text{ Pseudotetrade} \\
+	+&&&&&0&1&1&0&0&0&0&0& \rightarrow +60_{10} \\
+	&&&&_1&_1&_1&&&&&&& \\
+	\hline
+	&0&0&1&0&0&0&0&0&1&0&0&1& \\
+	\end{array}
+\end{align*}
+\paragraph{(d)} $3_{10}\cdot 4_{10} \rightarrow 00010010_{BCD} \rightarrow 12_{10}$
+\begin{align*}
+	3_{10}&\rightarrow 0011_{BCD}\\
+	4_{10}&\rightarrow 0100_{BCD}
+\end{align*}
+\begin{align*}
+	\begin{array} {ccccccccccl}
+	&0&0&1&1&\cdot&0&1&0&0& \\
+	\hline
+	&&&&0&0&1&1&0&0&1100 \text{ Pseudotetrade} \\
+	&&&+&&&0&1&1&0& \rightarrow +6_{10} \\
+	&&&&&_1&_1&&&& \\
+	\hline
+	&&&&0&1&0&0&1&0& \\
+	\end{array}
 \end{align*}
 
 
