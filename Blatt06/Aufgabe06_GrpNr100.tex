@@ -1,0 +1,118 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage[ngerman]{babel}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{esvect}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{todonotes}
+\usepackage{pgfplots}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{booktabs}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+\usepackage{mathtools}
+\usepackage{centernot}
+\usepackage{mathabx}
+
+\newcommand{\uproman}[1]{\uppercase\expandafter{\romannumeral#1}}
+\newcommand\mathbfont{\usefont{U}{mathb}{m}{n}}
+
+\hypersetup{
+     colorlinks   = true,
+     citecolor    = gray
+}
+
+
+\title{Grundlagen der Rechnerarchitektur Blatt 5}
+\author{Marco Deuscher \and Carolin Schindler}
+\date{05. Dezember 2019}
+
+\begin{document}
+
+\maketitle
+\section{Eine Schaltung für den Weihnachtsbaum}
+
+\paragraph{(a) Wahrheitstafel}\mbox{}\\
+$x_i$ kodieren Tag und $s_i$ ist Segment i
+\begin{align*}
+	\begin{array}{r|cccc|ccccccc}
+		\text{Tag}& x_3&x_2&x_1&x_0 &s_1&s_2&s_3&s_4&s_5&s_6&s_7\\
+		\hline
+		\text{So } 01 &0&0&0&0 &1&1&1&1&1&1&1\\
+		\text{Mo } 02 &0&0&0&1 &0&1&0&1&0&1&0\\
+		\text{Di } 03 &0&0&1&0 &0&1&0&1&0&1&0\\
+		\text{Mi } 04 &0&0&1&1 &1&1&0&1&0&1&0\\
+		\text{Do } 05 &0&1&0&0 &0&1&0&1&0&1&0\\
+		\text{Fr } 06 &0&1&0&1 &1&1&1&1&1&1&0\\
+		\text{Sa } 07 &0&1&1&0 &1&1&1&1&1&1&0\\
+		\text{So } 08 &0&1&1&1 &1&1&1&1&1&1&1\\
+		\text{Mo } 09 &1&0&0&0 &1&0&1&0&1&0&0\\
+		\text{Di } 10 &1&0&0&1 &1&1&1&1&1&1&0\\
+		\text{Mi } 11 &1&0&1&0 &1&0&1&1&1&1&0\\
+		\text{Do } 12 &1&0&1&1 &1&0&1&0&1&0&0\\
+		\text{Fr } 13 &1&1&0&0 &1&0&1&0&1&0&0\\
+		\text{Sa } 14 &1&1&0&1 &1&1&1&1&1&1&0\\
+		\text{So } 15 &1&1&1&0 &1&0&1&0&1&0&1\\
+		\text{Mo } 16 &1&1&1&1 &1&1&1&0&1&0&0\\
+	\end{array}
+\end{align*}
+
+\paragraph{(b) Kanonische Normalformen}\mbox{}\\
+\begin{align*}
+	f_{1,DKNF} = & (\bar{x}_3\bar{x}_2\bar{x}_1\bar{x}_0) + (\bar{x}_3\bar{x}_2x_1x_0) + (\bar{x}_3x_2\bar{x}_1x_0) + (\bar{x}_3x_2x_1\bar{x}_0) + (\bar{x}_3x_2x_1x_0) + (x_3\bar{x}_2\bar{x}_1\bar{x}_0) + (x_3\bar{x}_2\bar{x}_1x_0)\\
+	&+ (x_3\bar{x}_2x_1\bar{x}_0) + (x_3\bar{x}_2x_1x_0) + (x_3x_2\bar{x}_1\bar{x}_0) + (x_3x_2\bar{x}_1x_0) + (x_3x_2x_1\bar{x}_0) + (x_3x_2x_1x_0)
+\end{align*}
+\begin{align*}
+	f_{2,KKNF} = & (\bar{x}_3 + x_2 + x_1 + x_0)\cdot(\bar{x}_3 + x_2 + \bar{x}_1 + x_0)\cdot(\bar{x}_3 + x_2 + \bar{x}_1 + \bar{x}_0)\\
+	&\cdot(\bar{x}_3 + \bar{x}_2 + x_1 + x_0)\cdot(\bar{x}_3 + \bar{x}_2 + \bar{x}_1 + x_0)
+\end{align*}
+
+\paragraph{(c) Algebraische Minimierung}\mbox{}\\
+XXX
+
+\paragraph{(d) Karnaugh-Veitch}\mbox{}\\
+Segment 3: $f_{3,KV,DNF} = x_3 + x_2x_0 + x_2x_1 + \bar{x}_2\bar{x}_1\bar{x}_0$
+\begin{align*}
+	\begin{array}{cccccc}
+		&\bar{x}_0&x_0&x_0&\bar{x}_0&\\
+		\bar{x}_1&1&0&1&0&\bar{x}_3\\
+		x_1&0&0&1&1&\bar{x}_3\\
+		x_1&1&1&1&1&x_3\\
+		\bar{x}_1&1&1&1&1&x_3\\
+		&\bar{x}_2&\bar{x}_2&x_2&x_2&\\
+	\end{array}
+\end{align*}
+Segment 4: $f_{4,KV,KNF} = (\bar{x}_0+\bar{x}_1+\bar{x}_3)\cdot(\bar{x}_3+\bar{x}_2+x_0)\cdot(\bar{x}_3+x_1+x_0)$
+\begin{align*}
+	\begin{array}{cccccc}
+		&\bar{x}_0&x_0&x_0&\bar{x}_0&\\
+		\bar{x}_1&1&1&1&1&\bar{x}_3\\
+		x_1&1&1&1&1&\bar{x}_3\\
+		x_1&1&0&0&0&x_3\\
+		\bar{x}_1&0&1&1&0&x_3\\
+		&\bar{x}_2&\bar{x}_2&x_2&x_2&\\
+	\end{array}
+\end{align*}
+
+\paragraph{(e) Quine McCluskey}\mbox{}\\
+XXX
+
+\paragraph{(f) Weniger ist mehr}\mbox{}\\
+Segment 1(b): $13\cdot\text{AND}_4 + \text{OR}_7 + \text{OR}_7 + 23\cdot\text{NOT}_1 \rightarrow 208\text{Transistoren}$\\
+Segment 1(c): $6\cdot\text{AND}_2 + \text{AND}_3 + \text{OR}_7 + 3\cdot\text{NOT}_1 \rightarrow 66\text{Transistoren}$\\
+$\rightarrow$ Ersparnis um $(1-\frac{66}{208}\approx39.8\%)$ durch Minimierung\\
+Segment 2(b): $\text{AND}_5 + 5\cdot\text{OR}_4 + 11\cdot\text{NOT}_1 \rightarrow 84\text{Transistoren}$\\
+Segment 2(c): $\text{AND}_2 + \text{OR}_2 + \text{OR}_3 + 2\cdot\text{NOT}_1 \rightarrow 24\text{Transistoren}$\\
+$\rightarrow$ Ersparnis um $(1-\frac{24}{84}\approx71.4\%)$ durch Minimierung\\
+
+
+
+\end{document}
