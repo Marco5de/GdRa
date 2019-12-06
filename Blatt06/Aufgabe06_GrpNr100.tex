@@ -77,10 +77,19 @@ $x_i$ kodieren Tag und $s_i$ ist Segment i
 
 \paragraph{(c) Algebraische Minimierung}\mbox{}\\
 \begin{align*}
-	f_{1,DNF} &= XXX
+	f_{1,DNF} &\stackrel{P4, P3'}{=} (\bar{x}_2\bar{x}_1\bar{x}_0(\bar{x}_3+x_3)) + (x_2x_1x_0(\bar{x}_3+x_3)) + (x_3x_2x_1(\bar{x}_0+x_0)) + (x_3x_2x_0(\bar{x}_1+x_1))\\ &\hspace{32pt} + (x_3x_1x_0(\bar{x}_2+x_2)) + (x_3\bar{x}_1x_0(\bar{x}_2+x_2)) + (x_3x_1\bar{x}_0(\bar{x}_2+x_2)) + (x_2x_1\bar{x}_0(\bar{x}_3+x_3)) \\ &\hspace{32pt} + (x_2\bar{x}_1x_0(\bar{x}_3+x_3)) + (x_3x_2\bar{x}_1(\bar{x}_0+x_0)) + (\bar{x}_3x_1x_0(\bar{x}_2+x_2))\\
+	&\stackrel{P9', P5}{=} \bar{x}_2\bar{x}_1\bar{x}_0 + x_2x_1x_0 + x_3x_2x_1 + x_3x_2x_0 + x_3x_1x_0 + x_3\bar{x}_1x_0 + x_3x_1\bar{x}_0+x_2x_1\bar{x}_0 \\ &\hspace{32pt} + x_2\bar{x}_1x_0 + x_3x_2\bar{x}_1+\bar{x}_3x_1x_0\\
+	&\stackrel{P4, P3'}{=} (x_2x_1(x_0+\bar{x}_0)) + (x_3x_2(x_1+\bar{x}_1)) +(x_3x_1(x_0+\bar{x}_0)) + (x_3x_0(x_1+\bar{x}_1)) + (x_1x_0(x_3+\bar{x}_3))\\ &\hspace{32pt}+ (x_2x_0(x_1+\bar{x}_1)) + \bar{x}_2\bar{x}_1\bar{x}_0+x_3x_2x_0\\
+	&\stackrel{P9', P5}{=} x_2x_1 + x_3x_2+x_3x_1+x_3x_0+x_1x_0+x_2x_0+\bar{x}_2\bar{x}_1\bar{x}_0+x_3x_2x_0\\
+	&\stackrel{P11'}{=} x_2x_1 + x_3x_2+x_3x_1+x_3x_0+x_1x_0+x_2x_0+\bar{x}_2\bar{x}_1\bar{x}_0\\
 \end{align*}
 \begin{align*}
-	f_{2,KNF} &= XXX
+	f_{2,KNF} &\stackrel{P4', P3}{=} ( (\bar{x}_3+x_2+x_0) + (x_1\bar{x}_1) )
+	\cdot( (\bar{x}_3+\bar{x}_2+x_0) + (x_1\bar{x}_1) )
+	\cdot( (\bar{x}_3+x_2+\bar{x}_1) + (x_0\bar{x}_0) )\\
+	&\stackrel{P9, P5'}{=} (\bar{x}_3+x_2+x_0)\cdot(\bar{x}_3+\bar{x}_2+x_0)\cdot(\bar{x}_3+x_2+\bar{x}_1)\\
+	&\stackrel{P4'}{=} ((\bar{x}_3+x_0) + (x_2\bar{x}_2))\cdot(x_3+x_2+\bar{x}_1)\\
+	&\stackrel{P9, P5'}{=} (\bar{x}_3 + x_0)\cdot(x_3+x_2+\bar{x}_1)\\
 \end{align*}
 
 \paragraph{(d) Karnaugh-Veitch}\mbox{}\\
