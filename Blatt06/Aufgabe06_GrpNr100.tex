@@ -76,7 +76,12 @@ $x_i$ kodieren Tag und $s_i$ ist Segment i
 \end{align*}
 
 \paragraph{(c) Algebraische Minimierung}\mbox{}\\
-XXX
+\begin{align*}
+	f_{1,DNF} &= XXX
+\end{align*}
+\begin{align*}
+	f_{2,KNF} &= XXX
+\end{align*}
 
 \paragraph{(d) Karnaugh-Veitch}\mbox{}\\
 Segment 3: $f_{3,KV,DNF} = x_3 + x_2x_0 + x_2x_1 + \bar{x}_2\bar{x}_1\bar{x}_0$
@@ -103,7 +108,46 @@ Segment 4: $f_{4,KV,KNF} = (\bar{x}_0+\bar{x}_1+\bar{x}_3)\cdot(\bar{x}_3+\bar{x
 \end{align*}
 
 \paragraph{(e) Quine McCluskey}\mbox{}\\
-XXX
+Segment 5: $f_{5,QMC} = \bar{x}_2\bar{x}_1\bar{x}_0 + x_2x_1 + x_2x_0 + x_3$
+\begin{align*}
+	Q_{4,4} &= \{\underline{\bar{x}_3\bar{x}_2\bar{x}_1\bar{x}_0}\}\\
+	Q_{4,3} &= \{\underline{x_3\bar{x}_2\bar{x}_1\bar{x}_0}\}\\
+	Q_{4,2} &= \{\underline{x_3\bar{x}_2x_1\bar{x}_0}, \underline{x_3\bar{x}_2\bar{x}_1x_0}, \underline{\bar{x}_3x_2x_1\bar{x}_0}, \underline{\bar{x}_3x_2\bar{x}_1x_0}, \underline{x_3x_2\bar{x}_1\bar{x}_0}\}\\
+	Q_{4,1} &= \{\underline{\bar{x}_3x_2x_1x_0}, \underline{x_3\bar{x}_2x_1x_0}, \underline{x_3x_2\bar{x}_1x_0}, \underline{x_3x_2x_1\bar{x}_0}\}\\
+	Q_{4,0} &= \{\underline{x_3x_2x_1x_0}\}\\
+	\hline
+	Q_{3,3} &= \{\bar{x}_2\bar{x}_1\bar{x}_0\}\\
+	Q_{3,2} &= \{\underline{x_3\bar{x}_2\bar{x}_0}, \underline{x_3\bar{x}_2\bar{x}_1}, \underline{x_3\bar{x}_1\bar{x}_0}\}\\
+	Q_{3,1} &= \{\underline{x_3\bar{x}_2x_1}, \underline{x_3x_1\bar{x}_0}, \underline{x_3\bar{x}_2x_0, x_3\bar{x}_1x_0}, \underline{\bar{x}_3x_2x_1}, \underline{x_2x_1\bar{x}_0}, \underline{\bar{x}_3x_2x_0}, \underline{x_2\bar{x}_1x_0}, \underline{x_3x_2\bar{x}_1}, \underline{x_3x_2\bar{x}_0}\}\\
+	Q_{3,0} &= \{\underline{x_2x_1x_0}, \underline{x_3x_1x_0}, \underline{x_3x_2x_0}, \underline{x_3x_2x_1}\}\\
+	\hline
+	Q_{2,2} &= \{ \}\\
+	Q_{2,1} &= \{\underline{x_3\bar{x}_2}, \underline{x_3\bar{x}_0}, \underline{x_3\bar{x}_1}\}\\
+	Q_{2,0} &= \{\underline{x_3x_1}, \underline{x_3x_0}, x_2x_1, x_2x_0, \underline{x_3x_2}\}\\
+	\hline
+	Q_{1,1} &= \{ \}\\
+	Q_{1,0} &= \{x_3\}\\
+\end{align*}
+Segment 6: $f_{6,QMC} = \bar{x}_2x_1\bar{x}_0 + \bar{x}_1x_0 +\bar{x}_3$
+\begin{align*}
+	Q_{4,4} &= \{\underline{\bar{x}_3\bar{x}_2\bar{x}_1\bar{x}_0}\}\\
+	Q_{4,3} &= \{\underline{\bar{x}_3\bar{x}_2\bar{x}_1x_0}, \underline{\bar{x}_3\bar{x}_2x_1\bar{x}_0}, \underline{\bar{x}_3x_2\bar{x}_1\bar{x}_0}\}\\
+	Q_{4,2} &= \{\underline{\bar{x}_3\bar{x}_2x_1x_0}, \underline{\bar{x}_3x_2\bar{x}_1x_0}, \underline{\bar{x}_3x_2x_1\bar{x}_0}, \underline{x_3\bar{x}_2\bar{x}_1x_0}, \underline{x_3\bar{x}_2x_1\bar{x}_0}\}\\
+	Q_{4,1} &= \{\underline{\bar{x}_3x_2x_1x_0}, \underline{x_3x_2\bar{x}_1x_0}\}\\
+	Q_{4,0} &= \{ \}\\
+	\hline
+	Q_{3,3} &= \{\underline{\bar{x}_3\bar{x}_2\bar{x}_1}, \underline{\bar{x}_3\bar{x}_2\bar{x}_0}, \underline{\bar{x}_3\bar{x}_1\bar{x}_0}\}\\
+	Q_{3,2} &= \{\underline{\bar{x}_3\bar{x}_2x_0}, \underline{\bar{x}_3\bar{x}_1x_0}, \underline{\bar{x}_2\bar{x}_1x_0}, \underline{\bar{x}_3\bar{x}_2x_1}, \underline{\bar{x}_3x_1\bar{x}_0}, \bar{x}_2x_1\bar{x}_0, \underline{\bar{x}_3x_2\bar{x}_1}, \underline{\bar{x}_3x_2\bar{x}_0}\}\\
+	Q_{3,1} &= \{\underline{\bar{x}_3x_2x_0}, \underline{\bar{x}_3x_2x_0}, \underline{x_1\bar{x}_1x_0}, \underline{\bar{x}_3x_2x_1}, \underline{x_3\bar{x}_1x_0}\}\\
+	Q_{3,0} &= \{ \}\\
+	\hline
+	Q_{2,2} &= \{\underline{\bar{x}_3\bar{x}_2}, \underline{\bar{x}_3\bar{x}_1}, \underline{\bar{x}_3\bar{x}_0}\}\\
+	Q_{2,1} &= \{\underline{\bar{x}_3x_0}, \bar{x}_1x_0, \underline{\bar{x}_3x_1}, \underline{\bar{x}_3x_2}\}\\
+	Q_{2,0} &= \{ \}\\
+	\hline
+	Q_{1,1} &= \{\bar{x}_3\}\\
+	Q_{1,0} &= \{ \}\\
+\end{align*}
 
 \paragraph{(f) Weniger ist mehr}\mbox{}\\
 Segment 1(b): $13\cdot\text{AND}_4 + \text{OR}_7 + \text{OR}_7 + 23\cdot\text{NOT}_1 \rightarrow 208\text{Transistoren}$\\
